@@ -1,0 +1,15 @@
+
+sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
+
+sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+
+
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+
+sudo yum install -y apache-maven
+
+
+
+DOCKER FILE
+FROM tomcat:9
+COPY /opt/docker/myweb-8.2.0.war /usr/local/tomcat/webapps/myweb.war
